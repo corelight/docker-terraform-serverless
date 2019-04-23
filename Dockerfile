@@ -1,0 +1,9 @@
+FROM hashicorp/terraform:light
+LABEL maintainer="Corelight AWS Team <aws@corelight.com>"
+LABEL description="Serverless with Terraform for CI/CD"
+
+RUN apk add --update git bash openssh nodejs nodejs-npm
+RUN npm install -g serverless
+# Note: ignore "serverless update check failed" warning during "npm install"
+
+ENTRYPOINT ["serverless"]
