@@ -6,4 +6,4 @@ RUN apk add --update git bash openssh nodejs nodejs-npm
 RUN npm install -g serverless
 # Note: ignore "serverless update check failed" warning during "npm install"
 
-ENTRYPOINT ["serverless"]
+ENTRYPOINT ["/bin/bash", "-l", "-c"]
