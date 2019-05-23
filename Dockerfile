@@ -1,4 +1,5 @@
-FROM hashicorp/terraform:light
+FROM hashicorp/terraform:0.11.14
+# FROM hashicorp/terraform:light # when we can support v.12+
 LABEL maintainer="Corelight AWS Team <aws@corelight.com>"
 LABEL description="Serverless with Terraform for CI/CD"
 
