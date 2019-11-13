@@ -8,9 +8,9 @@ RUN npm install -g serverless serverless-plugin-git-variables serverless-terrafo
 # Note: ignore "serverless update check failed" warning during "npm install"
 
 # Heavyweight considering we only use awscli for configuration, presently.
-RUN apk add --update python py-pip && \
-    pip install --upgrade awscli   && \
-    apk --purge del py-pip         && \
+RUN apk add --update python py-pip             && \
+    pip install --upgrade awscli python-gitlab && \
+    apk --purge del py-pip                     && \
     rm /var/cache/apk/*
 
 ENTRYPOINT ["/bin/bash", "-l", "-c"]
