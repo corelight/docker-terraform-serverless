@@ -4,7 +4,7 @@ LABEL maintainer="Corelight AWS Team <aws@corelight.com>"
 LABEL description="Serverless with Terraform for CI/CD"
 
 RUN apk add --update git bash openssh make nodejs nodejs-npm
-RUN npm install -g serverless serverless-plugin-git-variables serverless-terraform-outputs
+RUN npm install -g serverless serverless-plugin-git-variables serverless-terraform-outputs serverless-domain-manager
 # Note: ignore "serverless update check failed" warning during "npm install"
 
 # Heavyweight considering we only use awscli for configuration, presently.
