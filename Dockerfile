@@ -1,10 +1,13 @@
 FROM hashicorp/terraform:0.12.12
-# FROM hashicorp/terraform:light # when we can support v.12+
 LABEL maintainer="Corelight AWS Team <aws@corelight.com>"
 LABEL description="Serverless with Terraform for CI/CD"
 
 RUN apk add --update git bash openssh make nodejs nodejs-npm
-RUN npm install -g serverless serverless-plugin-git-variables serverless-terraform-outputs serverless-domain-manager
+RUN npm install -g \
+    serverless@1.66.0 \
+    serverless-plugin-git-variables \
+    serverless-terraform-outputs \
+    serverless-domain-manager
 # Note: ignore "serverless update check failed" warning during "npm install"
 
 # Heavyweight considering we only use awscli for configuration, presently.
