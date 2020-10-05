@@ -1,6 +1,12 @@
-FROM hashicorp/terraform:0.12.29
+FROM vault:1.5.3
 LABEL maintainer="Corelight AWS Team <aws@corelight.com>"
-LABEL description="Serverless with Terraform for CI/CD"
+LABEL description="Serverless and Vault with Terraform for CI/CD"
+
+
+RUN wget --quiet https://releases.hashicorp.com/terraform/0.12.29/terraform_0.12.29_linux_amd64.zip \
+  && unzip terraform_0.12.29_linux_amd64.zip \
+  && mv terraform /usr/bin \
+  && rm terraform_0.12.29_linux_amd64.zip
 
 RUN apk add --no-cache --update git bash openssh make nodejs nodejs-npm
 RUN npm install -g serverless \
@@ -14,6 +20,7 @@ RUN npm install -g serverless \
 RUN apk add --no-cache --update python3 py-pip groff && \
     pip install --upgrade awscli python-gitlab
 
-RUN ln -s /usr/bin/python3 /usr/bin/python
+RUN alias python='/usr/bin/python3'
+
 
 ENTRYPOINT ["/bin/bash", "-l", "-c"]
