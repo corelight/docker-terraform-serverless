@@ -8,7 +8,7 @@ RUN wget --quiet https://releases.hashicorp.com/terraform/0.12.29/terraform_0.12
   && mv terraform /usr/bin \
   && rm terraform_0.12.29_linux_amd64.zip
 
-RUN apk add --no-cache --update git bash openssh make nodejs nodejs-npm
+RUN apk add --no-cache --update git bash openssh make nodejs nodejs-npm jq
 RUN npm install -g serverless \
     serverless-domain-manager \
     serverless-plugin-git-variables \
@@ -19,8 +19,5 @@ RUN npm install -g serverless \
 # Heavyweight considering we only use awscli for configuration, presently.
 RUN apk add --no-cache --update python3 py-pip groff && \
     pip install --upgrade awscli python-gitlab
-
-RUN alias python='/usr/bin/python3'
-
 
 ENTRYPOINT ["/bin/bash", "-l", "-c"]
