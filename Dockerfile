@@ -2,8 +2,8 @@ FROM vault:1.5.3
 LABEL maintainer="Corelight AWS Team <aws@corelight.com>"
 LABEL description="Serverless and Vault with Terraform for CI/CD"
 
-RUN curl -L "https://dl.google.com/go/go1.15.1.linux-amd64.tar.gz" -o /root/go1.15.1.linux-amd64.tgz && \
-    tar -C /usr/local -xzf /root/go1.15.1.linux-amd64.tgz
+RUN wget -O /root/go1.15.1.linux-amd64.tar.gz "https://dl.google.com/go/go1.15.1.linux-amd64.tar.gz" && \
+    tar -C /usr/local -xzf /root/go1.15.1.linux-amd64.tar.gz
 
 ENV PATH="${PATH}:/usr/local/go/bin"
 
