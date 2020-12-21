@@ -10,6 +10,10 @@ LABEL description="Serverless and Vault with Terraform for CI/CD"
 
 ARG GOLANG_VERSION=1.15.6
 
+RUN wget --quiet https://releases.hashicorp.com/terraform/0.12.29/terraform_0.12.29_linux_amd64.zip \
+  && unzip terraform_0.12.29_linux_amd64.zip \
+  && mv terraform /usr/bin \
+  && rm terraform_0.12.29_linux_amd64.zip
 
 RUN apk add --no-cache --update git bash openssh make nodejs nodejs-npm jq
 RUN npm install -g serverless@1.66 \
