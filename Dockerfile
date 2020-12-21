@@ -29,6 +29,8 @@ RUN wget https://dl.google.com/go/go$GOLANG_VERSION.src.tar.gz && tar -C /usr/lo
 
 RUN cd /usr/local/go/src && ./make.bash
 
+ENV PATH=$PATH:/usr/local/go/bin
+
 RUN rm go$GOLANG_VERSION.src.tar.gz
 
 #we delete the apk installed version to avoid conflict
