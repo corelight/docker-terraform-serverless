@@ -45,4 +45,12 @@ RUN go version
 RUN ln -s /usr/local/go/bin/go /usr/bin/go
 RUN ln -s /usr/local/go/bin/gofmt/usr/bin/gofmt
 
+
+RUN wget https://github.com/mitchellh/golicense/releases/download/v0.1.1/golicense_0.1.1_linux_x86_64.tar.gz &&\
+    tar -xzf golicense_0.1.1_linux_x86_64.tar.gz -C tmp &&\
+    mv tmp/golicense /usr/local/bin/golicense &&\
+    rm -rf tmp &&\
+    rm golicense_0.1.1_linux_x86_64.tar.gz
+
+
 ENTRYPOINT ["/bin/bash", "-l", "-c"]
