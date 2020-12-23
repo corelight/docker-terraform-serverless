@@ -2,12 +2,6 @@ FROM vault:1.6.1
 LABEL maintainer="Corelight AWS Team <aws@corelight.com>"
 LABEL description="Serverless and Vault with Terraform for CI/CD"
 
-#RUN wget -O /root/go1.15.1.linux-amd64.tar.gz "https://dl.google.com/go/go1.15.1.linux-amd64.tar.gz" && \
-#    tar -C /usr/local -xzf /root/go1.15.1.linux-amd64.tar.gz
-#
-#RUN ln -s /usr/local/bin/go /usr/bin/go
-#RUN ln -s /usr/local/bin/gofmt /usr/bin/gofmt
-
 ARG GOLANG_VERSION=1.15.6
 
 RUN wget --quiet https://releases.hashicorp.com/terraform/0.12.29/terraform_0.12.29_linux_amd64.zip \
