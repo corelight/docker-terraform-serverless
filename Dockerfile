@@ -10,7 +10,7 @@ RUN wget --quiet https://releases.hashicorp.com/terraform/0.12.29/terraform_0.12
   && rm terraform_0.12.29_linux_amd64.zip
 
 RUN apk add --no-cache --update git bash openssh make nodejs nodejs-npm jq
-RUN npm install -g serverless@1.66 \
+RUN npm install -g serverless@2.0.0 \
     serverless-domain-manager \
     serverless-plugin-git-variables \
     serverless-prune-plugin \
